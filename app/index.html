@@ -1,43 +1,87 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html lang="en" ng-app="WEBApp" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <title>W.E.B</title>
+    <!-- meta -->
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- meta::facebook -->
+    <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="website">
+    <!-- meta::twitter -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <!-- stylesheets::front-end framework -->
+    <link href="assets@admin/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheets::fonts -->
+    <link href="assets@admin/fonts/brandon/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/adelle/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/aktiv-grotesk/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- stylesheets::vendor -->
+    <link href="assets@admin/vendor/animate/animate.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+    <link href="assets@admin/vendor/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
+    <!-- stylesheets::main -->
+    <!-- <link href="assets@admin/styles/main.min.css" rel="stylesheet"> -->
+    
+    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-controller="TaskListCtrl">
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+    <ul>
+        <li ng-repeat="task in tasks | orderBy: '-end_at'">
+            <h1>{{ task.title }}</h1>
+            <p>{{ task.start_at }}</p>
+            <p>{{ task.end_at }}</p>
+            <p>{{ task.description }}</p>
+            <p>{{ task.is_done }}</p>
+            <p>{{ task.course.name }}</p>
+            <p>{{ task.comment }}</p>
+            <!-- <p>{{ task.file }}</p> -->
+        </li>
+    </ul>
 
-  <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+    <!-- scripts::jquery -->
+    <script src="assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
+    <!-- scripts::front-end framework -->
+    <script src="assets@admin/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- scripts::vendor -->
+    <script src="assets@admin/vendor/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets@admin/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets@admin/vendor/dataTables/jquery.dataTables.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.bootstrap.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.responsive.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
+    <script src="assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <!-- scripts::main -->
+    <script src="assets@admin/scripts/main.min.js"></script>
 </body>
 </html>

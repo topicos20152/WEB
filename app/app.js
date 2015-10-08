@@ -19,8 +19,7 @@ taskControllers.controller('TaskListCtrl', ['$scope', '$http',
     'title': 'Resumo de artigo',
     'start_at': '2015-10-07T00:00:00',
     'end_at': '2015-10-25T23:59:59',
-    'description':'Leiam o artigo X e resumam. Enviei um arquivo 
-    para seus e-mails',
+    'description':'Leiam o artigo X e resumam. Enviei um arquivo para seus e-mails',
     'is_done': false,
     'course_name':'Tópicos em ES IV',
     'comment':'Não sei o que faço com vocês... Alunos preguiçosos'
@@ -42,8 +41,7 @@ taskControllers.controller('TaskListCtrl', ['$scope', '$http',
     'title': 'Resumo de artigo 2!!!',
     'start_at': '2015-09-21T12:00:00',
     'end_at': '2015-10-23T17:59:59',
-    'description':'Leiam o artigo X e resumam. Enviei um arquivo 
-    para seus e-mails',
+    'description':'Leiam o artigo X e resumam. Enviei um arquivo para seus e-mails',
     'is_done': false,
     'course_name':'Tópicos em ES IV',
     'comment':'if(alunos == preguiçosos) return reprovar;'
