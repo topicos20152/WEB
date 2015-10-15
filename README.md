@@ -3,7 +3,6 @@
 	<img width="400" src="https://rawgit.com/topicos20152/WEB/master/app/assets%40admin/images/logo.png">
 	<br>
 	<br>
-	<br>
 </h1>
 
 > A 2k16 vision of the <a href="https://sigaa.ufrn.br/" target="_blank">Sigaa UFRN</a>
