@@ -1,14 +1,15 @@
-# angular-seed — the seed for AngularJS apps
+BADGES (TODO)
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
+# Introduction
 
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
+This project is the webapp for the SIGAA-X's application suite.
 
-The seed app doesn't do much, just shows how to wire two controllers and views together.
+Absolutely designed to provide a smooth, clean, fast and atractive web vision for the 
+<a href="https://sigaa.ufrn.br/" target="_blank">SIGAA</a> application, it (TODO)
 
+You should use it to enjoy the 20% most used (nearly) funcionalities of the SIGAA in a 2k16 way (;
+
+## Topics
 
 ## Getting Started
 
