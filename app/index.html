@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" ng-app="WEBApp" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>SIGAA-X</title>
+    <!-- meta -->
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- meta::facebook -->
+    <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="website">
+    <!-- meta::twitter -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <!-- stylesheets::front-end framework -->
+    <link href="assets@admin/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- stylesheets::fonts -->
+    <link href="assets@admin/fonts/brandon/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/adelle/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/aktiv-grotesk/font.css" rel="stylesheet">
+    <link href="assets@admin/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- stylesheets::vendor -->
+    <link href="assets@admin/vendor/animate/animate.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="assets@admin/vendor/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+    <link href="assets@admin/vendor/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
+    <!-- stylesheets::main -->
+    <link href="assets@admin/styles/main.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+
+        <ng-include src="'partials/_sidebar.html'"></ng-include>
+
+        <div id="page-wrapper" class="white-bg">
+            
+            <div ng-include="'partials/_topnavbar.html'"></div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-12 col-md-10">
+                    <h2>Tasks</h2>
+                </div>
+            </div>
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>List of Tasks<small></small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <ul class="task-list" ng-controller="TaskListCtrl">
+                                <li class="timeline-line"></li>
+                                <li class="row" ng-repeat="task in tasks | orderBy: '-end_at'">
+                                    <div class="col-xs-2 date">
+                                        <i class="fa fa-calendar"></i>
+                                        <h5>{{ task.end_at | date:'EEEE' }}</h5>
+                                        <p>{{ task.end_at | date:'dd/MMM yy' }}</p>
+                                    </div>
+                                    <div class="col-xs-10 info">
+                                        <p class="time">{{ task.end_at | date:'HH:MM' }}</p>
+                                        <h4>{{ task.title }}</h4>
+                                        <p class="course-name">{{ task.course_name }}</p>
+
+                                        <div ng-if="!task.is_done">
+                                            <i class="undone fa fa-check"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <p>{{ task.start_at }}</p>
+                                    <p>{{ task.end_at }}</p>
+                                    <p>{{ task.description }}</p>
+                                    <p>{{ task.is_done }}</p>
+                                    <p>{{ task.course.name }}</p>
+                                    <p>{{ task.comment }}</p> -->
+                                    <!-- <p>{{ task.file }}</p> -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-include="'partials/_footer.html'"></div>
+        </div>
+    </div>
+
+
+
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+
+    <!-- scripts::jquery -->
+    <script src="assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
+    <!-- scripts::front-end framework -->
+    <script src="assets@admin/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- scripts::vendor -->
+    <script src="assets@admin/vendor/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets@admin/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets@admin/vendor/dataTables/jquery.dataTables.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.bootstrap.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.responsive.js"></script>
+    <script src="assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
+    <script src="assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <!-- scripts::main -->
+    <script src="assets@admin/scripts/main.min.js"></script>
+</body>
+</html>

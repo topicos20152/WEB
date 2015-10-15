@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-REGULAR.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-REGULAR.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-REGULAR.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-REGULAR.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-REGULAR.svg#b6b933d6eeb92d33db4fad36c45b0bff') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  300;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-SEMIBOLD.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-SEMIBOLD.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-SEMIBOLD.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-SEMIBOLD.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-SEMIBOLD.svg#a17038077b1d8a3e62b9eb677c3d4bcc') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-SEMIBOLDIT.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-SEMIBOLDIT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-SEMIBOLDIT.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-SEMIBOLDIT.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-SEMIBOLDIT.svg#ff3f12e3407cf21c783cffffbada55c2') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-BOLD.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-BOLD.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-BOLD.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-BOLD.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-BOLD.svg#29986178e2e3e94e7075806c03273fa2') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  500;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-BOLDIT.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-BOLDIT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-BOLDIT.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-BOLDIT.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-BOLDIT.svg#470733d46b4ef618e0555a7d8c63b488') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  500;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-COND.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-COND.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-COND.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-COND.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-COND.svg#9dd3dbc010a5d0ffa723ba7bdffb1f79') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  600;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-CONDIT.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-CONDIT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-CONDIT.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-CONDIT.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-CONDIT.svg#6486d92378605564dd952885c76a36cc') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  600;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-BOLDCOND.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-BOLDCOND.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-BOLDCOND.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-BOLDCOND.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-BOLDCOND.svg#d614bb9ca08c307ca9e6bf0f069157e2') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('MYRIADPRO-BOLDCONDIT.eot'); /* IE9 Compat Modes */
+  src: url('MYRIADPRO-BOLDCONDIT.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('MYRIADPRO-BOLDCONDIT.woff') format('woff'), /* Modern Browsers */
+       url('MYRIADPRO-BOLDCONDIT.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('MYRIADPRO-BOLDCONDIT.svg#4f8bda7c536b962ce868d774ed5b63b4') format('svg'); /* Legacy iOS */
+
+  font-style:   italic;
+  font-weight:  700;
+}
+
