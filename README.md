@@ -11,7 +11,7 @@ This project is part of the Sigaa-X's application suite.
 
 Absolutely designed to provide a clean, fast and atractive web vision for the academic 
 application used in the Federal University of Rio Grande do Norte, it becomes with a smooth 
-front-end made from students to students.
+front-end made for students by students.
 
 
 ## Usage
