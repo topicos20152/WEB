@@ -29,27 +29,27 @@ Then you can open the folder `http://<your webserver base url>/sigaa-x/app` and 
 
 ### Linux and OS X
 
-#### First, you should clone the repo
+##### First, you should clone the repo
 ```bash
   $ git clone git@github.com:topicos20152/WEB.git sigaa-x-webapp
 ```
 
-#### Then move the project to the webserver base
+##### Then move the project to the webserver base
 ```bash
   $ mv sigaa-x-webapp <path to your webserver base>
 ```
 
-#### Install the dependencies
+##### Install the dependencies
 Before you install the dependencies, you'll need to install <a href="https://nodejs.org/" target="_blank">node</a> and <a href="https://www.npmjs.com/" target="_blank">npm</a>!
 
-#### Really install the dependencies
+##### Really install the dependencies
 ```bash
   $ cd sigaa-x-webapp
   $ npm install    # install the javascript dependencies
   $ bower install    # install the 'front-end' dependencies
 ```
 
-#### Run <a href="http://gulpjs.com/" target="_blank">gulp</a>
+##### Run <a href="http://gulpjs.com/" target="_blank">gulp</a>
 ```bash
   $ gulp
 ```
@@ -62,7 +62,7 @@ is responsible to watch your assets and:
 
 *1 and 2 also means that you should not put any other js/css file outside the `src` path. If you do this, be sure you manually import it.*
 
-#### Finally
+##### Finally
 You can start **developing**.
 
 ### Windows
