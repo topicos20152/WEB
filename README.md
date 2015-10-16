@@ -5,9 +5,9 @@
 	<br>
 </h1>
 
-> A 2k16 vision of the <a href="https://sigaa.ufrn.br/" target="_blank">Sigaa UFRN</a>
+> A 2k16 vision of the <a href="https://sigaa.ufrn.br/" target="_blank">SIGAA UFRN</a>
 
-This project is part of the Sigaa-X's application suite.
+This project is part of the SIGAA-X's application suite.
 
 Absolutely designed to provide a clean, fast and atractive web vision for the academic application used in the Federal University of Rio Grande do Norte, it comes with a smooth front-end made for students by students.
 
@@ -77,4 +77,24 @@ hahaha jk ¯\\\_(ツ)_/¯
 
 # License
 
-**TODO**
+The MIT License (MIT)
+
+Copyright (c) 2015 SIGAA-X webapp team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
