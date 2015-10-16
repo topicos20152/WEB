@@ -19,5 +19,5 @@ front-end made for students by students.
 To get you started you can simply clone the repo and put it inside a web server (like Apache)
 to prevent Cross Origin Request bugs.
 
-Now you can open the folder sigaa-x/app and the index.html should renderize like a charm.
+Now you can open the folder <your webserver base url>/sigaa-x/app and the index.html should renderize like a charm.
 
