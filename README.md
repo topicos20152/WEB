@@ -5,7 +5,7 @@
 	<br>
 </h1>
 
-> A 2k16 vision of the <a href="https://sigaa.ufrn.br/" target="_blank">SIGAA UFRN</a>
+> A 2k16 vision for the <a href="https://sigaa.ufrn.br/" target="_blank">SIGAA UFRN</a>
 
 This project is part of the SIGAA-X's application suite.
 
