@@ -60,7 +60,7 @@ Quando executar o <a href="http://gulpjs.com/" target="_blank">gulp</a>, um proc
   3. Executar o compilador sass <a href="http://sass-lang.com/" target="_blank"></a> compiler (<a href="http://alistapart.com/article/why-sass" target="_blank">por que sass?</a>).
   4. Manter um monitoramento sobre quaisquer alterações em seus arquivos js e css.
   
-*1 e 2 também ressaltam que você não deve colocar qualquer arquivo js/css fora do caminho 'src'. Se você fizer isso, garanta que fez sua importação manual.
+*1 e 2 também ressaltam que você não deve colocar qualquer arquivo js/css fora do caminho 'src'. Se você fizer isso, garanta que fez sua importação manual.*
 
 #### Finalmente
 Você pode começar a **desenvolver**.
