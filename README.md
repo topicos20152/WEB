@@ -71,7 +71,7 @@ hahaha jk ¯\\\_(ツ)_/¯
 
 # Team
 
-[![Wendell P. Barreto](https://avatars2.githubusercontent.com/u/2782873?v=3&s=144)](https://github.com/wendellpbarreto) | [![Hugo André](https://avatars1.githubusercontent.com/u/8400059?v=3&s=144)](https://github.com/hugoandregg) | [![Renato Nascimento](https://avatars0.githubusercontent.com/u/4237373?v=3&s=144)](https://github.com/rhnasc) | [![Marcel Luiz](http://gravatar.com/avatar/48fa294e3cd41680ba80d3ed6345c7b4d?s=144)](https://github.com/marcelluiz96)
+[![Wendell P. Barreto](https://avatars2.githubusercontent.com/u/2782873?v=3&s=144)](https://github.com/wendellpbarreto) | [![Hugo André](https://avatars1.githubusercontent.com/u/8400059?v=3&s=144)](https://github.com/hugoandregg) | [![Renato Nascimento](https://avatars0.githubusercontent.com/u/4237373?v=3&s=144)](https://github.com/rhnasc) | [![Marcel Luiz](https://avatars1.githubusercontent.com/u/8753560?v=3&s=144)](https://github.com/marcelluiz96)
 ---|---|---|---
 [Wendell P. Barreto](https://github.com/wendellpbarreto) | [Hugo André](https://github.com/hugoandregg) | [Renato Nascimento](https://github.com/rhnasc) | [Marcel Luiz](https://github.com/marcelluiz96)
 
