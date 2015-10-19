@@ -9,7 +9,7 @@
 
 This project is part of the SIGAA-X's application suite.
 
-Absolutely designed to provide a clean, fast and atractive web vision for the academic application used in the Federal University of Rio Grande do Norte, it comes with a smooth front-end made for students by students.
+Absolutely designed to provide a clean, fast and attractive web vision for the academic application used in Federal University of Rio Grande do Norte, it comes with a smooth front-end made for students and by students.
 
 # Technologies
   * <a href="http://www.w3schools.com/html/html5_intro.asp" target="_blank">HTML5</a>
@@ -20,7 +20,7 @@ Absolutely designed to provide a clean, fast and atractive web vision for the ac
 
 # Usage
 
-To get you started you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (only to prevent Cross Origin Request bugs).
+To get started you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (only to prevent Cross Origin Request bugs).
 
 Then you can open the folder `http://<your webserver base url>/sigaa-x/app` and the index.html should renderize like a charm.
 
@@ -55,8 +55,8 @@ Before you install the dependencies, you'll need to install <a href="https://nod
 ```
 When you run <a href="http://gulpjs.com/" target="_blank">gulp</a>, a process will start, this process
 is responsible to watch your assets and:
-  1. Check, concat and minify every single js file inside `app/assets/scripts/src/` to the `app/assets/scripts/main.min.js` file (the only one we use in your HTML).
-  2. Check, concat, prefix and minify the css files inside `app/assets/styles/src/` to the `app/assets/styles/main.min.css` file. 
+  1. Check, concat and minify every single js file inside `app/assets/scripts/src/` into the `app/assets/scripts/main.min.js` file (the only one we use in your HTML).
+  2. Check, concat, prefix and minify the css files inside `app/assets/styles/src/` into the `app/assets/styles/main.min.css` file. 
   3. Run the <a href="http://sass-lang.com/" target="_blank">sass</a> compiler (<a href="http://alistapart.com/article/why-sass" target="_blank">why sass?</a>).
   4. Keep watching every change in your js and css files.
 
