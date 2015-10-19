@@ -7,7 +7,7 @@
 
 > A 2k16 vision for the <a href="https://sigaa.ufrn.br/" target="_blank">SIGAA UFRN</a>
 
-This project is part of the SIGAA-X's application suite.
+This project is part of the SIGAA-X application suite.
 
 Absolutely designed to provide a clean, fast and attractive web vision for the academic application used in Federal University of Rio Grande do Norte, it comes with a smooth front-end made for students and by students.
 
@@ -20,7 +20,7 @@ Absolutely designed to provide a clean, fast and attractive web vision for the a
 
 # Usage
 
-To get started you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (only to prevent Cross Origin Request bugs).
+To get started you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (just to prevent Cross Origin Request bugs).
 
 Then you can open the folder `http://<your webserver base url>/sigaa-x/app` and the index.html should renderize like a charm.
 
@@ -54,13 +54,13 @@ Before you install the dependencies, you'll need to install <a href="https://nod
   $ gulp
 ```
 When you run <a href="http://gulpjs.com/" target="_blank">gulp</a>, a process will start, this process
-is responsible to watch your assets and:
-  1. Check, concat and minify every single js file inside `app/assets/scripts/src/` into the `app/assets/scripts/main.min.js` file (the only one we use in your HTML).
-  2. Check, concat, prefix and minify the css files inside `app/assets/styles/src/` into the `app/assets/styles/main.min.css` file. 
-  3. Run the <a href="http://sass-lang.com/" target="_blank">sass</a> compiler (<a href="http://alistapart.com/article/why-sass" target="_blank">why sass?</a>).
+is responsible for watching your assets and:
+  1. Checking, concat'ing and minifying every single js file inside `app/assets/scripts/src/` into the `app/assets/scripts/main.min.js` file (the only one we use in your HTML).
+  2. Checking, concat'ing, prefixing and minifying the css files inside `app/assets/styles/src/` into the `app/assets/styles/main.min.css` file. 
+  3. Running the <a href="http://sass-lang.com/" target="_blank">sass</a> compiler (<a href="http://alistapart.com/article/why-sass" target="_blank">why sass?</a>).
   4. Keep watching every change in your js and css files.
 
-*1 and 2 also means that you should not put any other js/css file outside the `src` path. If you do this, be sure you manually import it.*
+*1 and 2 also mean that you should not put any other js/css file outside the `src` path. If you do this, make sure you manually imported it.*
 
 #### Finally
 You can start **developing**.
