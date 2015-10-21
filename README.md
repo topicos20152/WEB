@@ -20,9 +20,13 @@ Absolutely designed to provide a clean, fast and attractive web vision for the a
 
 # Usage
 
-To get started you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (just to prevent Cross Origin Request bugs).
+To **get started** you can simply download or clone the repo and put it inside a web server like Apache, nginx, etc. (just to prevent Cross Origin Request bugs).
+```bash
+  $ git clone git@github.com:topicos20152/WEB.git sigaa-x-webapp
+  $ mv sigaa-x-webapp <path to your webserver base>
+```
 
-Then you can open the folder `http://<your webserver base url>/sigaa-x/app` and the index.html should renderize like a charm.
+Then you can open the folder `http://<your webserver base url>/sigaa-x-webapp/app` and the index.html should renderize like a charm.
 
 
 # Development
