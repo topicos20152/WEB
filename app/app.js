@@ -1,149 +1,114 @@
 'use strict';
 
-var WEBApp = angular.module('WEBApp', [
-  'ngRoute',
-  'taskControllers'
-]);
+var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2'])
+  .config(['OAuthProvider', function(OAuthProvider) {
+    OAuthProvider.configure({
+      baseUrl: 'http://topicos-api.herokuapp.com/',
+      clientId: '5630be8511c8bd0003000006',
+      // clientSecret: 'At2dTNvNxlGoxU6c7eQ5kw' // optional
+    });
+  }]);
+
+WEBApp.run(function($rootScope) {
+  $rootScope.$on("$routeChangeStart", function (event, next, current) {
+    if (sessionStorage.restorestate == "true") {
+      $rootScope.$broadcast('restorestate'); 
+      sessionStorage.restorestate = false;
+    }
+  });
+
+  window.onbeforeunload = function (event) {
+    $rootScope.$broadcast('savestate');
+  };
+});
 
 var taskControllers = angular.module('taskControllers', []);
 
-taskControllers.controller('TaskListCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    // $http.get('tasks/tasks.json').success(function(data) {
-    //   $scope.tasks = data;
-    // });
+WEBApp.value('clientId', 'a12345654321x');
 
-    $scope.tasks = [
-  {
-    'id': '1',
-    'title': 'Resumo de artigo',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-25T23:59:59',
-    'description':'Leiam o artigo X e resumam. Enviei um arquivo para seus e-mails',
-    'is_done': false,
-    'course_name':'Tópicos em ES IV',
-    'comment':'Não sei o que faço com vocês... Alunos preguiçosos'
-  },
+taskControllers.controller('TaskListCtrl', ['$scope', '$http', function ($scope, $http) {
+  $http.get('http://topicos-api.herokuapp.com/users/563cc7738995e50003000001/tasks?access_token=V3lwCwyV1oEZD2ovsCWCkg').success(function(data) {
+    $scope.tasks = data;
+  });
+  $scope.orderProp = 'end_at';
+}]);
 
-  {
-    'id': '2',
-    'title': 'Leitura de livro',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-27T23:59:59',
-    'description':'Sempre gostei do pequeno príncipe. Leiam.',
-    'is_done': true,
-    'course_name':'Estruturas de dados básicas II',
-    'comment':'Não sei o que faço com vocês... Alunos preguiçosos'
-  },
+taskControllers.controller('TaskDetailCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+  $scope.taskId = $routeParams.taskId;  
+}]);
 
-  {
-    'id': '3',
-    'title': 'Resumo de artigo 2!!!',
-    'start_at': '2015-09-21T12:00:00',
-    'end_at': '2015-10-23T17:59:59',
-    'description':'Leiam o artigo X e resumam. Enviei um arquivo para seus e-mails',
-    'is_done': false,
-    'course_name':'Tópicos em ES IV',
-    'comment':'if(alunos == preguiçosos) return reprovar;'
-  },
+WEBApp.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.
+    when('/tasks', {
+      templateUrl: 'partials/task-list.html',
+      controller: 'TaskListCtrl'
+    }).
+    when('/tasks/:taskId', {
+      templateUrl: 'partials/task-detail.html',
+      controller: 'TaskDetailCtrl'
+    }).
+    otherwise({
+      redirectTo: '/tasks'
+    });
+}]);
 
-  {
-    'id': '4',
-    'title': 'Fujam do país',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-26T23:59:59',
-    'description':'Enquanto há tempo!!',
-    'is_done': false,
-    'course_name':'Arquivo X',
-    'comment':'Já fiz as malas. Vlw flw'
-  },
+WEBApp.factory('userService', ['$rootScope', function ($rootScope) {
 
-  {
-    'id': '5',
-    'title': 'Termine de mockar',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-11-28T23:59:59',
-    'description':'Você já fez 5 mocks com sucesso. ',
-    'is_done': false,
-    'course_name':'procrastinação',
-    'comment':'Vocês têm futuro. Eu confio'
-  },
+  var service = {
 
-  {
-    'id': '6',
-    'title': 'Testando fé nos mocks',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-25T23:59:59',
-    'description':'Será que alguém lê meus mocks',
-    'is_done': true,
-    'course_name':'Tópicos em ES IV',
-    'comment':'Se você ler isso, quer dize que fui útil'
-  },
+    model: {
+      username: '',
+      access_token: ''
+    },
 
-  {
-    'id': '7',
-    'title': 'A infantilidade',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-22T21:59:59',
-    'description':'É inerente à criança',
-    'is_done': false,
-    'course_name':'alor olar 3',
-    'comment':'bjs vlw flw oi renato'
-  },
+    SaveState: function () {
+      sessionStorage.userService = angular.toJson(service.model);
+    },
 
-  {
-    'id': '8',
-    'title': 'PROFESSIONAL MOCKING',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-10-30T13:59:59',
-    'description':'MOCKS PROFISSIONAIS A GENTE SE LIGA EM VC',
-    'is_done': true,
-    'course_name':'Tópicos em ES XIII',
-    'comment':'meu deusssss'
-  },
+    RestoreState: function () {
+      service.model = angular.fromJson(sessionStorage.userService);
+    }
+  }
 
-  {
-    'id': '9',
-    'title': 'Será que alguém se importa comigo',
-    'start_at': '2015-10-07T00:00:00',
-    'end_at': '2015-11-02T23:59:59',
-    'description':'Eu me corto quando fico triste',
-    'is_done': false,
-    'course_name':'Tópicos em ES III',
-    'comment':'Mas ninguém lê meus mocks para saber'
-  },
+  $rootScope.$on("savestate", service.SaveState);
+  $rootScope.$on("restorestate", service.RestoreState);
 
-  {
-    'id': '10',
-    'title': 'O último',
-    'start_at': '2015-10-21T00:00:00',
-    'end_at': '2015-10-23T23:59:59',
-    'description':'Talvez esse seja o fim da minha issue',
-    'is_done': false,
-    'course_name':'Chega de tópicos',
-    'comment':'STOL FELIZ PAKS'
-  }];
+  return service;
+}]);
 
-    $scope.orderProp = 'end_at';
-  }]);
+WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService', function($http, $cookieStore, $rootScope, $timeout, UserService) {
+  var service = {};
 
-taskControllers.controller('TaskDetailCtrl', ['$scope', '$routeParams',
-  function($scope, $routeParams) {
-    $scope.taskId = $routeParams.taskId;
-  }]);
+  service.Login = Login;
+  service.SetCredentials = SetCredentials;
+  service.ClearCredentials = ClearCredentials;
 
-WEBApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/tasks', {
-        templateUrl: 'partials/task-list.html',
-        controller: 'TaskListCtrl'
-      }).
-      when('/tasks/:taskId', {
-        templateUrl: 'partials/task-detail.html',
-        controller: 'TaskDetailCtrl'
-      }).
-      otherwise({
-        redirectTo: '/tasks'
-      });
-  }]);
+  return service;
+
+  function Login(username, password, callback) {
+    $http.post('/api/authenticate', { username: username, password: password })
+    .success(function (response) {
+      callback(response);
+    });
+  }
+
+  function SetCredentials(username, password) {
+    var authdata = Base64.encode(username + ':' + password);
+
+    $rootScope.globals = {
+      currentUser: {
+        username: username,
+        authdata: authdata
+      }
+    };
+
+    $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; 
+    $cookieStore.put('globals', $rootScope.globals);
+  }
+
+  function ClearCredentials() {
+    $rootScope.globals = {};
+    $cookieStore.remove('globals');
+    $http.defaults.headers.common.Authorization = 'Basic';
+  }
+}]);
