@@ -91,6 +91,7 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
 
   function SetCredentials(username, password, access_token) {
 
+    UserService.model.username = username;
     UserService.model.access_token = access_token;
     console.log(UserService.model);
 
@@ -119,10 +120,11 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
 
 var taskControllers = angular.module('taskControllers', []);
 
-taskControllers.controller('TaskListCtrl', ['$scope', '$http', 
-  function ($scope, $http) {
-    console.log(sessionStorage.userService);
-    $http.get('http://topicos-api.herokuapp.com/users/563cc7738995e50003000001/tasks?access_token=' + sessionStorage.userService.model.access_token).success(function(data) {
+taskControllers.controller('TaskListCtrl', ['$scope', '$http', 'UserService',
+  function ($scope, $http, UserService) {
+    console.log(angular.fromJson(sessionStorage.userService));
+    console.log(angular.fromJson(sessionStorage.userService)["access_token"]);
+    $http.get('http://topicos-api.herokuapp.com/users/' + angular.fromJson(sessionStorage.userService)["username"] + '/tasks?access_token=' + angular.fromJson(sessionStorage.userService)["access_token"]).success(function(data) {
       $scope.tasks = data;
     });
     $scope.orderProp = 'end_at';
