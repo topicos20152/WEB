@@ -1,13 +1,33 @@
 'use strict';
 
-var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2'])
-  .config(['OAuthProvider', function(OAuthProvider) {
-    OAuthProvider.configure({
-      baseUrl: 'http://topicos-api.herokuapp.com/',
-      clientId: '5630be8511c8bd0003000006',
-      // clientSecret: 'At2dTNvNxlGoxU6c7eQ5kw' // optional
-    });
-  }]);
+var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2']);
+  // .config(['OAuthProvider', function(OAuthProvider) {
+  //   OAuthProvider.configure({
+  //     baseUrl: 'http://topicos-api.herokuapp.com/',
+  //     clientId: '5630be8511c8bd0003000006',
+  //     clientSecret: 'At2dTNvNxlGoxU6c7eQ5kw' // optional
+  //   });
+  // }]);
+
+// WEBApp.config(function($routeProvider){
+//   $routeProvider.
+//     when('/', {
+//       templateUrl: 'index.html',
+//       // controller: 'LoginController'
+//     }).
+//     when('/a', {
+//       templateUrl: 'index.html',
+//       // controller: 'LoginController'
+//     }).
+
+//     when('/login', {
+//       templateUrl: 'index.html',
+//       // controller: 'LoginController'
+//     }).
+//     otherwise({
+//       redirectTo: '/app/',
+//     });
+// });
 
 WEBApp.run(function($rootScope) {
   $rootScope.$on("$routeChangeStart", function (event, next, current) {
@@ -22,37 +42,13 @@ WEBApp.run(function($rootScope) {
   };
 });
 
-var taskControllers = angular.module('taskControllers', []);
+WEBApp.run(function($http) {
+  $http.defaults.headers.post = { 'Content-Type' : 'text/plain' };
+});
 
-WEBApp.value('clientId', 'a12345654321x');
 
-taskControllers.controller('TaskListCtrl', ['$scope', '$http', function ($scope, $http) {
-  $http.get('http://topicos-api.herokuapp.com/users/563cc7738995e50003000001/tasks?access_token=V3lwCwyV1oEZD2ovsCWCkg').success(function(data) {
-    $scope.tasks = data;
-  });
-  $scope.orderProp = 'end_at';
-}]);
 
-taskControllers.controller('TaskDetailCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-  $scope.taskId = $routeParams.taskId;  
-}]);
-
-WEBApp.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-    when('/tasks', {
-      templateUrl: 'partials/task-list.html',
-      controller: 'TaskListCtrl'
-    }).
-    when('/tasks/:taskId', {
-      templateUrl: 'partials/task-detail.html',
-      controller: 'TaskDetailCtrl'
-    }).
-    otherwise({
-      redirectTo: '/tasks'
-    });
-}]);
-
-WEBApp.factory('userService', ['$rootScope', function ($rootScope) {
+WEBApp.factory('UserService', ['$rootScope', function ($rootScope) {
 
   var service = {
 
@@ -76,6 +72,7 @@ WEBApp.factory('userService', ['$rootScope', function ($rootScope) {
   return service;
 }]);
 
+
 WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService', function($http, $cookieStore, $rootScope, $timeout, UserService) {
   var service = {};
 
@@ -86,23 +83,28 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
   return service;
 
   function Login(username, password, callback) {
-    $http.post('/api/authenticate', { username: username, password: password })
+    $http.post('http://topicos-api.herokuapp.com/users/' + username + '/request_access_token', { username: username, password: password })
     .success(function (response) {
       callback(response);
     });
   }
 
-  function SetCredentials(username, password) {
-    var authdata = Base64.encode(username + ':' + password);
+  function SetCredentials(username, password, access_token) {
+
+    UserService.model.access_token = access_token;
+    console.log(UserService.model);
+
+    // var authdata = Base64.encode(username + ':' + password);
 
     $rootScope.globals = {
       currentUser: {
         username: username,
-        authdata: authdata
+        password: password,
+        access_token: access_token,
       }
     };
 
-    $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; 
+    // $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; 
     $cookieStore.put('globals', $rootScope.globals);
   }
 
@@ -112,3 +114,48 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
     $http.defaults.headers.common.Authorization = 'Basic';
   }
 }]);
+
+// CONTROLLERS
+
+var taskControllers = angular.module('taskControllers', []);
+
+taskControllers.controller('TaskListCtrl', ['$scope', '$http', 
+  function ($scope, $http) {
+    console.log(sessionStorage.userService);
+    $http.get('http://topicos-api.herokuapp.com/users/563cc7738995e50003000001/tasks?access_token=' + sessionStorage.userService.model.access_token).success(function(data) {
+      $scope.tasks = data;
+    });
+    $scope.orderProp = 'end_at';
+  }
+]);
+
+taskControllers.controller('TaskDetailCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+  $scope.taskId = $routeParams.taskId;  
+}]);
+
+taskControllers.controller('LoginController', ['$scope', '$http', '$location', 'AuthenticationService', 
+  function ($scope, $http, $location, AuthenticationService) {
+    // (function initController() {
+    //   console.log("SUBMITET");
+    //   AuthenticationService.ClearCredentials();
+    // })();
+    
+    $scope.user = {};
+
+    // public function index_options() {
+    //     return $this->response(NULL, 200);
+    // }
+
+    $scope.login = function() {
+      var username = this.username;
+      var password = this.password;
+
+      AuthenticationService.Login(username, password, function (response) {
+        if (response.value) {
+          AuthenticationService.SetCredentials(username, password, response.value);
+          window.location.href="http://dev/sigaa-x-webapp/app/";
+        }
+      });
+    };
+  }
+]);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="WEBApp" class="no-js">
+<html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
     <title>SIGAA-X</title>
@@ -40,8 +40,9 @@
     <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css">
     <script src="assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    
 </head>
-<body>
+<body ng-app="WEBApp">
     <div id="wrapper">
 
         <ng-include src="'partials/_sidebar.html'"></ng-include>
@@ -90,6 +91,8 @@
             <div ng-include="'partials/_footer.html'"></div>
         </div>
     </div>
+
+    <div ng-view></div>
 
     <script src="assets/bower_components/angular/angular.min.js"></script>
     <script src="assets/bower_components/angular-route/angular-route.js"></script>
