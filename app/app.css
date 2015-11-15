@@ -28,3 +28,7 @@
   content: "";
   padding: 0;
 }
+
+.grouping li:not(:first-child) .date {
+    visibility:hidden;
+}
