@@ -1,6 +1,6 @@
 'use strict';
 
-var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2']);
+var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2','angular.filter']);
   // .config(['OAuthProvider', function(OAuthProvider) {
   //   OAuthProvider.configure({
   //     baseUrl: 'http://topicos-api.herokuapp.com/',
@@ -126,6 +126,9 @@ taskControllers.controller('TaskListCtrl', ['$scope', '$http', 'UserService',
     console.log(angular.fromJson(sessionStorage.userService)["access_token"]);
     $http.get('http://topicos-api.herokuapp.com/users/' + angular.fromJson(sessionStorage.userService)["username"] + '/tasks?access_token=' + angular.fromJson(sessionStorage.userService)["access_token"]).success(function(data) {
       $scope.tasks = data;
+      angular.forEach($scope.tasks, function(x) {
+        x["grouping"] = x["delivery_date"].replace(/\D/g,'').slice(0,8);
+      });
     });
     $scope.orderProp = 'end_at';
   }
@@ -155,7 +158,7 @@ taskControllers.controller('LoginController', ['$scope', '$http', '$location', '
       AuthenticationService.Login(username, password, function (response) {
         if (response.value) {
           AuthenticationService.SetCredentials(username, password, response.value);
-          window.location.href="http://dev/sigaa-x-webapp/app/";
+          window.location.href="file:///Users/rhnascimento/Documents/UFRN/Dev%20Colaborativo/trabalho/WEB/app/index.html";
         }
       });
     };

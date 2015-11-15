@@ -57,6 +57,13 @@
                 </div>
             </div>
 
+
+            <style>
+            .grouping li:not(:first-child) .date {
+                visibility:hidden;
+            }
+            </style>
+
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="ibox float-e-margins">
@@ -66,22 +73,24 @@
                         <div class="ibox-content">
                             <ul class="task-list" ng-controller="TaskListCtrl">
                                 <li class="timeline-line"></li>
-                                <li class="row" ng-repeat="task in tasks | orderBy: '-delivery_date'">
-                                    <div class="col-xs-2 date">
-                                        <i class="fa fa-calendar"></i>
-                                        <h5>{{ task.delivery_date | date:'EEEE' }}</h5>
-                                        <p>{{ task.delivery_date | date:'dd/MMM yy' }}</p>
-                                    </div>
-                                    <div class="col-xs-10 info">
-                                        <p class="time">{{ task.delivery_date | date:'HH:MM' }}</p>
-                                        <h4>{{ task.title }}</h4>
-                                        <p class="course-name">{{ task.course_title }}</p>
-
-                                        <div ng-if="!task.is_done">
-                                            <i class="undone fa fa-check"></i>
+                                <div class="grouping" ng-repeat=" (key, value) in tasks | orderBy: '-delivery_date' | groupBy: '-grouping'   ">
+                                    <li class="row" ng-repeat="task in value | orderBy: '-delivery_date'  ">
+                                        <div class="col-xs-2 date">
+                                            <i class="fa fa-calendar"></i>
+                                            <h5>{{ task.delivery_date | date:'EEEE' }}</h5>
+                                            <p>{{ task.delivery_date | date:'dd/MMM yy' }}</p>
                                         </div>
-                                    </div>
-                                </li>
+                                        <div class="col-xs-10 info">
+                                            <p class="time">{{ task.delivery_date | date:'HH:MM' }}</p>
+                                            <h4>{{ task.title }}</h4>
+                                            <p class="course-name">{{ task.course_title }}</p>
+
+                                            <div ng-if="!task.is_done">
+                                                <i class="undone fa fa-check"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -95,6 +104,7 @@
     <div ng-view></div>
 
     <script src="assets/bower_components/angular/angular.min.js"></script>
+    <script src="assets/bower_components/angular-filter/dist/angular-filter.js"></script>
     <script src="assets/bower_components/angular-route/angular-route.js"></script>
     <script src="assets/bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="assets/bower_components/query-string/query-string.js"></script>
@@ -120,6 +130,6 @@
     <script src="assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
     <script src="assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
     <!-- scripts::main -->
-    <script src="assets@admin/scripts/main.min.js"></script>
+    <script src="assets@admin/scripts/main.js"></script>
 </body>
 </html>
