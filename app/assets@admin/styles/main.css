@@ -3971,16 +3971,16 @@ body.modal-open {
   padding-top: 40px; }
 
 .lockscreen.middle-box {
-  width: 200px;
+  width: 350px;
   padding-top: 110px; }
 
 .loginscreen.middle-box {
-  width: 300px; }
+  width: 350px; }
 
 .loginColumns {
   max-width: 800px;
   margin: 0 auto;
-  padding: 100px 20px 20px 20px; }
+  padding: 150px 20px 20px 20px; }
 
 .passwordBox {
   max-width: 460px;
@@ -3988,17 +3988,20 @@ body.modal-open {
   padding: 100px 20px 20px 20px; }
 
 .logo-name {
-  color: #e6e6e6;
-  font-size: 180px;
+  color: #fff;
+  font-size: 45px;
   font-weight: 800;
-  letter-spacing: -10px;
-  margin-bottom: 0px; }
-
-.middle-box h1 {
-  font-size: 170px; }
+  letter-spacing: 2px;
+  background-color: #dc6f6a;
+  padding: 30px 0;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 30px 0; }
+  .logo-name span {
+    color: #353742; }
 
 .wrapper .middle-box {
-  margin-top: 140px; }
+  margin-top: 200px; }
 
 .lock-word {
   z-index: 10;
@@ -7262,7 +7265,8 @@ body.skin-3 {
  **/
 .task-list {
   list-style: none;
-  position: relative; }
+  position: relative;
+  padding: 0; }
   .task-list li {
     margin: 20px 0; }
     .task-list li.timeline-line {
@@ -7274,7 +7278,11 @@ body.skin-3 {
       background-color: #EFEFEF; }
   .task-list .date {
     position: relative;
-    padding-left: 60px; }
+    padding-left: 60px;
+    display: none; }
+    @media (min-width: 767px) {
+      .task-list .date {
+        display: block; } }
     .task-list .date i {
       position: absolute;
       left: 0;

@@ -412,6 +412,7 @@
 .task-list {
   list-style: none;
   position: relative;
+  padding: 0;
   li {
     margin: 20px 0;
     &.timeline-line {
@@ -426,6 +427,8 @@
   .date {
     position: relative;
     padding-left: 60px;
+    display: none;
+    @media (min-width: 767px) { display: block; }
     i {
       position: absolute;
       left: 0;
