@@ -1,6 +1,6 @@
 'use strict';
 
-var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2','angular.filter']);
+var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2']);
   // .config(['OAuthProvider', function(OAuthProvider) {
   //   OAuthProvider.configure({
   //     baseUrl: 'http://topicos-api.herokuapp.com/',
@@ -120,16 +120,25 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
 
 var taskControllers = angular.module('taskControllers', []);
 
-taskControllers.controller('TaskListCtrl', ['$scope', '$http', 'UserService',
-  function ($scope, $http, UserService) {
-    console.log(angular.fromJson(sessionStorage.userService));
-    console.log(angular.fromJson(sessionStorage.userService)["access_token"]);
-    $http.get('http://topicos-api.herokuapp.com/users/' + angular.fromJson(sessionStorage.userService)["username"] + '/tasks?access_token=' + angular.fromJson(sessionStorage.userService)["access_token"]).success(function(data) {
-      $scope.tasks = data;
-      angular.forEach($scope.tasks, function(x) {
-        x["grouping"] = x["delivery_date"].replace(/\D/g,'').slice(0,8);
+taskControllers.controller('TaskListCtrl', ['$scope', '$http', '$cookieStore', 'UserService', function ($scope, $http, $cookieStore, UserService) {
+    var username = $cookieStore.get('globals').currentUser['username'];
+    var access_token = $cookieStore.get('globals').currentUser['access_token'];
+    var today = new Date();
+    
+    $scope.week_date = new Date(today);
+    $scope.week_date.setDate(today.getDate() + 6);
+
+
+    $http.get('http://topicos-api.herokuapp.com/users/' + username + '/tasks?access_token=' + access_token)
+      .success(function(data) {
+        
+        angular.forEach(data, function(value, key) {
+          data[key]["delivery_date"] = new Date(value.delivery_date);
+        });
+
+        $scope.tasks = data;
       });
-    });
+
     $scope.orderProp = 'end_at';
   }
 ]);
@@ -158,7 +167,7 @@ taskControllers.controller('LoginController', ['$scope', '$http', '$location', '
       AuthenticationService.Login(username, password, function (response) {
         if (response.value) {
           AuthenticationService.SetCredentials(username, password, response.value);
-          window.location.href="file:///Users/rhnascimento/Documents/UFRN/Dev%20Colaborativo/trabalho/WEB/app/index.html";
+          window.location.href="http://dev/sigaa-x-webapp/app/";
         }
       });
     };
