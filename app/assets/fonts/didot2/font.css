@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Didot';
+  src: url('Didot.eot'); /* IE9 Compat Modes */
+  src: url('Didot.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Didot.woff') format('woff'), /* Modern Browsers */
+       url('Didot.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Didot.svg#7226759d2e91f9f52d6cba6d35e6a606') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Didot';
+  src: url('Didot-Bold.eot'); /* IE9 Compat Modes */
+  src: url('Didot-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Didot-Bold.woff') format('woff'), /* Modern Browsers */
+       url('Didot-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Didot-Bold.svg#a0b76936f95cc33d039ed6b845677ae2') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Didot';
+  src: url('Didot-Italic.eot'); /* IE9 Compat Modes */
+  src: url('Didot-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Didot-Italic.woff') format('woff'), /* Modern Browsers */
+       url('Didot-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Didot-Italic.svg#2f5e15e8bfc5cb886704ec743dae97fb') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  400;
+}
+

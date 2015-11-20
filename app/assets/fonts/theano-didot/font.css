@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Theano Didot';
+  src: url('TheanoDidot-Regular.eot'); /* IE9 Compat Modes */
+  src: url('TheanoDidot-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('TheanoDidot-Regular.woff') format('woff'), /* Modern Browsers */
+       url('TheanoDidot-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('TheanoDidot-Regular.svg#723819765dae2feda047780a063bbfa5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
