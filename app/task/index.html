@@ -21,35 +21,35 @@
     <meta name="twitter:site" content="">
     <meta name="twitter:creator" content="">
     <!-- stylesheets::front-end framework -->
-    <link href="assets@admin/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- stylesheets::fonts -->
-    <link href="assets@admin/fonts/brandon/font.css" rel="stylesheet">
-    <link href="assets@admin/fonts/adelle/font.css" rel="stylesheet">
-    <link href="assets@admin/fonts/aktiv-grotesk/font.css" rel="stylesheet">
-    <link href="assets@admin/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../assets@admin/fonts/brandon/font.css" rel="stylesheet">
+    <link href="../assets@admin/fonts/adelle/font.css" rel="stylesheet">
+    <link href="../assets@admin/fonts/aktiv-grotesk/font.css" rel="stylesheet">
+    <link href="../assets@admin/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- stylesheets::vendor -->
-    <link href="assets@admin/vendor/animate/animate.css" rel="stylesheet">
-    <link href="assets@admin/vendor/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="assets@admin/vendor/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <link href="assets@admin/vendor/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
-    <link href="assets@admin/vendor/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/animate/animate.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+    <link href="../assets@admin/vendor/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
     <!-- stylesheets::main -->
-    <link href="assets@admin/styles/main.min.css" rel="stylesheet">
+    <link href="../assets@admin/styles/main.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="../assets/bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="../assets/bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css">
-    <script src="assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     
 </head>
 <body ng-app="WEBApp">
     <div id="wrapper">
 
-        <ng-include src="'partials/_sidebar.html'"></ng-include>
+        <ng-include src="'../partials/_sidebar.html'"></ng-include>
 
         <div id="page-wrapper" class="white-bg">
             
-            <div ng-include="'partials/_topnavbar.html'"></div>
+            <div ng-include="'../partials/_topnavbar.html'"></div>
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-sm-12 col-md-10">
@@ -104,38 +104,39 @@
                 </div>
             </div>
 
-            <div ng-include="'partials/_footer.html'"></div>
+            <div ng-include="'../partials/_footer.html'"></div>
         </div>
     </div>
 
     <div ng-view></div>
 
-    <script src="assets/bower_components/angular/angular.min.js"></script>
-    <script src="assets/bower_components/angular-route/angular-route.js"></script>
-    <script src="assets/bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="assets/bower_components/query-string/query-string.js"></script>
-    <script src="assets/bower_components/angular-oauth2/dist/angular-oauth2.min.js"></script>
+    <script src="../assets/bower_components/angular/angular.min.js"></script>
+    <script src="../assets/bower_components/angular-route/angular-route.js"></script>
+    <script src="../assets/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="../assets/bower_components/query-string/query-string.js"></script>
+    <script src="../assets/bower_components/angular-oauth2/dist/angular-oauth2.min.js"></script>
 
-    <script src="app.js"></script>
-    <script src="view1/view1.js"></script>
-    <script src="view2/view2.js"></script>
-    <script src="components/version/version.js"></script>
-    <script src="components/version/version-directive.js"></script>
-    <script src="components/version/interpolate-filter.js"></script>
+    <script src="../app.js"></script>
+    <script src="taskCtrl.js"></script>
+    <script src="../login/loginCtrl.js"></script>
+    <script src="../login/auth.js"></script>
+    <script src="../components/version/version.js"></script>
+    <script src="../components/version/version-directive.js"></script>
+    <script src="../components/version/interpolate-filter.js"></script>
 
     <!-- scripts::jquery -->
-    <script src="assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
+    <script src="../assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
     <!-- scripts::front-end framework -->
-    <script src="assets@admin/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="../assets@admin/vendor/bootstrap/bootstrap.min.js"></script>
     <!-- scripts::vendor -->
-    <script src="assets@admin/vendor/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets@admin/vendor/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="assets@admin/vendor/dataTables/jquery.dataTables.js"></script>
-    <script src="assets@admin/vendor/dataTables/dataTables.bootstrap.js"></script>
-    <script src="assets@admin/vendor/dataTables/dataTables.responsive.js"></script>
-    <script src="assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
-    <script src="assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../assets@admin/vendor/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../assets@admin/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../assets@admin/vendor/dataTables/jquery.dataTables.js"></script>
+    <script src="../assets@admin/vendor/dataTables/dataTables.bootstrap.js"></script>
+    <script src="../assets@admin/vendor/dataTables/dataTables.responsive.js"></script>
+    <script src="../assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
+    <script src="../assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
     <!-- scripts::main -->
-    <script src="assets@admin/scripts/main.min.js"></script>
+    <script src="../assets@admin/scripts/main.min.js"></script>
 </body>
 </html>
