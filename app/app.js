@@ -83,7 +83,7 @@ WEBApp.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', 
   return service;
 
   function Login(username, password, callback) {
-    $http.post('http://topicos-api.herokuapp.com/users/' + username + '/request_access_token', { username: username, password: password })
+    $http.post('http://topicos-api.herokuapp.com/api/v1/users/' + username + '/request_access_token', { username: username, password: password })
     .success(function (response) {
       callback(response);
     });
@@ -129,7 +129,7 @@ taskControllers.controller('TaskListCtrl', ['$scope', '$http', '$cookieStore', '
     $scope.week_date.setDate(today.getDate() + 6);
 
 
-    $http.get('http://topicos-api.herokuapp.com/users/' + username + '/tasks?access_token=' + access_token)
+    $http.get('http://topicos-api.herokuapp.com/api/v1/users/' + username + '/tasks?access_token=' + access_token)
       .success(function(data) {
         
         angular.forEach(data, function(value, key) {
@@ -167,7 +167,7 @@ taskControllers.controller('LoginController', ['$scope', '$http', '$location', '
       AuthenticationService.Login(username, password, function (response) {
         if (response.value) {
           AuthenticationService.SetCredentials(username, password, response.value);
-          window.location.href="http://dev/sigaa-x-webapp/app/";
+          window.location.href="/WEB/app/";
         }
       });
     };
