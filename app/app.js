@@ -1,47 +1,37 @@
 'use strict';
 
-var WEBApp = angular.module('WEBApp', ['ngRoute', 'taskControllers', 'angular-oauth2']);
-  // .config(['OAuthProvider', function(OAuthProvider) {
-  //   OAuthProvider.configure({
-  //     baseUrl: 'http://topicos-api.herokuapp.com/',
-  //     clientId: '5630be8511c8bd0003000006',
-  //     clientSecret: 'At2dTNvNxlGoxU6c7eQ5kw' // optional
-  //   });
-  // }]);
+angular.module('webapp', [
+  'ngRoute',
+  'ngCookies'
+])
 
-// WEBApp.config(function($routeProvider){
-//   $routeProvider.
-//     when('/', {
-//       templateUrl: 'index.html',
-//       // controller: 'LoginController'
-//     }).
-//     when('/a', {
-//       templateUrl: 'index.html',
-//       // controller: 'LoginController'
-//     }).
+.config(function($routeProvider, $locationProvider) {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'task/taskList.html',
+  })
+  .otherwise({
+    redirectTo: '/'
+  });  
 
-//     when('/login', {
-//       templateUrl: 'index.html',
-//       // controller: 'LoginController'
-//     }).
-//     otherwise({
-//       redirectTo: '/app/',
-//     });
-// });
+  $locationProvider.html5Mode(true);
+})
 
-WEBApp.run(function($rootScope) {
-  $rootScope.$on("$routeChangeStart", function (event, next, current) {
-    if (sessionStorage.restorestate == "true") {
-      $rootScope.$broadcast('restorestate'); 
-      sessionStorage.restorestate = false;
+.config(function ($httpProvider) {
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+})
+
+.run(function($rootScope, $window, $cookies) {
+  $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute){
+    var logged = $cookies.get('accessToken');
+    var goingLoginPage = $window.location.pathname.indexOf('/login') !== -1;
+
+    if(!goingLoginPage && !logged) {
+      event.preventDefault();
+      $window.location.href = $window.location.href + 'login/login.html';
     }
   });
-
-  window.onbeforeunload = function (event) {
-    $rootScope.$broadcast('savestate');
-  };
-});
-
-WEBApp.run(function($http) {
-  $http.defaults.headers.post = { 'Content-Type' : 'text/plain' };
 });

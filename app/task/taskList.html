@@ -1,0 +1,59 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <ul class="tasks" ng-controller="TaskListController">
+                    <li ng-repeat="task in tasks | orderBy: '-delivery_date'">
+
+                        <div class="calendar">
+                            <i ng-if="task.is_done" class="done fa fa-check"></i>
+                            <i ng-if="!task.is_done && task.is_this_week" class="warning fa fa-exclamation"></i>
+                            <i ng-if="!task.is_done && !task.is_this_week" class="fa fa-calendar"></i>
+                            <h5 ng-if="task.is_today">TODAY</h5>
+                            <h5 ng-if="!task.is_today">{{ task.delivery_date | date:'EEEE' }}</h5>
+                            <p>{{ task.delivery_date | date:'dd/MMM yy' }}</p>
+                        </div>
+
+                        <div class="date">
+                            <h5>{{ task.delivery_date | date:'HH:MM' }}</h5>
+                            <p ng-if="task.is_today">HOJE</p>
+                            <p ng-if="!task.is_today && task.is_this_week">{{ task.delivery_date | date:'EEEE' }}</p>
+                            <p ng-if="!task.is_today && !task.is_this_week">{{ task.delivery_date | date:'dd/MMM' }}</p>
+                        </div>
+
+                        <article>
+                            <header>
+                                <h4>{{ task.title }}</h4>
+                                <h6 class="course-name">{{ task.course_title }}</h6>
+                            </header>
+                            <div class="desc">
+                            </div>
+                        </article>
+
+
+                        <!-- <div class="col-md-2 date">
+                            <i class="fa fa-calendar"></i>
+                            <h5>{{ task.deliveryDate | date:'EEEE' }}</h5>
+                            <p>{{ task.deliveryDate | date:'dd/MMM yy' }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-10 info">
+                            <p class="time">
+                                {{ task.deliveryDate | date:'HH:MM' }}
+                                <br>
+                                {{ task.deliveryDate | date:'dd/MMM' }}
+                            </p>
+                            <h4>{{ task.title }}</h4>
+                            <p class="course-name">{{ task.course_title }}</p>
+
+                            <div ng-if="!task.is_done">
+                                <i class="undone fa fa-check"></i>
+                            </div>
+                        </div> -->
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
