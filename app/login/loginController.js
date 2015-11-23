@@ -1,7 +1,7 @@
 var webapp = angular.module('webapp');
 
-webapp.controller('LoginController', ['$scope', '$http', '$cookies', 'LoginService', 
-  function ($scope, $http, $cookies, LoginService) {
+webapp.controller('LoginController', ['$scope', '$http', '$window', '$cookies', 'LoginService', 
+  function ($scope, $http, $window, $cookies, LoginService) {
     
     (function init() {
     })();
@@ -15,6 +15,7 @@ webapp.controller('LoginController', ['$scope', '$http', '$cookies', 'LoginServi
       LoginService.requestAccessToken(username, password, function (accessToken) {
         if (accessToken) {
           LoginService.setCredentials(username, accessToken);
+          $window.location.href = $window.location.href;
         } else {
 
         }
