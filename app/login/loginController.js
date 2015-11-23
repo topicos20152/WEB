@@ -4,7 +4,6 @@ webapp.controller('LoginController', ['$scope', '$http', '$cookies', 'LoginServi
   function ($scope, $http, $cookies, LoginService) {
     
     (function init() {
-      console.log($cookies.get('globals').currentUser);
     })();
     
     $scope.user = {};
