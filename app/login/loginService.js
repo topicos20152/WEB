@@ -19,7 +19,7 @@ webapp.factory('LoginService', ['$http', '$cookies', '$timeout',
       }, function errorCallback(response) {
         console.log('* Request Access Token::ERROR');
         console.log(response);
-        consoel.log('* -------------------------- *');
+        console.log('* -------------------------- *');
 
         callback(false);
       });

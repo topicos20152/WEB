@@ -15,7 +15,7 @@ webapp.controller('LoginController', ['$scope', '$http', '$window', '$cookies', 
       LoginService.requestAccessToken(username, password, function (accessToken) {
         if (accessToken) {
           LoginService.setCredentials(username, accessToken);
-          $window.location.href = $window.location.href;
+          $window.location.href = "";
         } else {
 
         }
