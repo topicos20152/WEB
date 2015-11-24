@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <base href="/sigaa-x-webapp/app/">
     <meta charset="utf-8">
     <title>SIGAA-X</title>
     <!-- meta -->
@@ -35,14 +36,11 @@
     <link href="assets@admin/vendor/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
     <!-- stylesheets::main -->
     <link href="assets@admin/styles/main.min.css" rel="stylesheet">
-
+    <!-- stylesheets::vendor -->
     <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
-    <link rel="stylesheet" href="app.css">
-    <script src="assets/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    
 </head>
-<body ng-app="WEBApp">
+<body ng-app="webapp">
     <div id="wrapper">
 
         <ng-include src="'partials/_sidebar.html'"></ng-include>
@@ -57,76 +55,31 @@
                 </div>
             </div>
 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>List of Tasks<small></small></h5>
-                        </div>
-                        <div class="ibox-content">
-
-                            <ul id="tasks" ng-controller="TaskListCtrl">
-                                <li ng-repeat="task in tasks | orderBy: '-delivery_date'">
-                                    <div class="date">
-                                        <h6>{{ task.delivery_date | date:'HH:MM' }}</h6>
-                                        <p ng-if="week_date > task.delivery_date">!! {{ task.delivery_date | date:'dd/MMM' }}</p>
-                                        <p ng-if="week_date < task.delivery_date">22 {{ task.delivery_date | date:'EEEE' }}</p>
-                                    </div>
-                                    <div class="info">
-                                        
-                                    </div>
-
-
-                                    <!-- <div class="col-md-2 date">
-                                        <i class="fa fa-calendar"></i>
-                                        <h5>{{ task.delivery_date | date:'EEEE' }}</h5>
-                                        <p>{{ task.delivery_date | date:'dd/MMM yy' }}</p>
-                                    </div>
-                                    <div class="col-xs-12 col-md-10 info">
-                                        <p class="time">
-                                            {{ task.delivery_date | date:'HH:MM' }}
-                                            <br>
-                                            {{ task.delivery_date | date:'dd/MMM' }}
-                                        </p>
-                                        <h4>{{ task.title }}</h4>
-                                        <p class="course-name">{{ task.course_title }}</p>
-
-                                        <div ng-if="!task.is_done">
-                                            <i class="undone fa fa-check"></i>
-                                        </div>
-                                    </div> -->
-
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div ng-view></div>
 
             <div ng-include="'partials/_footer.html'"></div>
         </div>
     </div>
 
-    <div ng-view></div>
-
+    <!-- scripts::angular -->
     <script src="assets/bower_components/angular/angular.min.js"></script>
     <script src="assets/bower_components/angular-route/angular-route.js"></script>
     <script src="assets/bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="assets/bower_components/query-string/query-string.js"></script>
-    <script src="assets/bower_components/angular-oauth2/dist/angular-oauth2.min.js"></script>
-
+    
+    <!-- scripts::angular::local -->
     <script src="app.js"></script>
-    <script src="view1/view1.js"></script>
-    <script src="view2/view2.js"></script>
-    <script src="components/version/version.js"></script>
+    <script src="task/taskService.js"></script>
+    <script src="task/taskListController.js"></script>
+    <!--<script src="components/version/version.js"></script>
     <script src="components/version/version-directive.js"></script>
-    <script src="components/version/interpolate-filter.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>-->
 
     <!-- scripts::jquery -->
     <script src="assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
+
     <!-- scripts::front-end framework -->
     <script src="assets@admin/vendor/bootstrap/bootstrap.min.js"></script>
+
     <!-- scripts::vendor -->
     <script src="assets@admin/vendor/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets@admin/vendor/slimscroll/jquery.slimscroll.min.js"></script>
@@ -135,6 +88,7 @@
     <script src="assets@admin/vendor/dataTables/dataTables.responsive.js"></script>
     <script src="assets@admin/vendor/dataTables/dataTables.tableTools.min.js"></script>
     <script src="assets@admin/vendor/owlcarousel/owl.carousel.min.js"></script>
+
     <!-- scripts::main -->
     <script src="assets@admin/scripts/main.min.js"></script>
 </body>
