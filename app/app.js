@@ -27,11 +27,11 @@ angular.module('webapp', [
 .run(function($rootScope, $window, $cookies) {
   $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute){
     var logged = $cookies.get('accessToken');
-    var goingLoginPage = $window.location.pathname.indexOf('/login') !== -1;
+    var goingLoginPage = $window.location.pathname.indexOf('auth/login') !== -1;
 
     if(!goingLoginPage && !logged) {
       event.preventDefault();
-      $window.location.href = $window.location.href + 'login/login.html';
+      $window.location.href = $window.location.href + 'auth/login.html';
     }
   });
 });

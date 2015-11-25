@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-6">
                 <div class="ibox-content text-center">
-                    <form class="m-t m-b" role="form" ng-controller="LoginController" ng-submit="login()">
+                    <form class="m-t m-b" role="form" ng-controller="AuthController" ng-submit="login()">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" required="" autofocus="" ng-model="username">
                         </div>
@@ -86,8 +86,8 @@
     
     <!-- scripts::angular::local -->
     <script src="app.js"></script>
-    <script src="login/loginService.js"></script>
-    <script src="login/loginController.js"></script>
+    <script src="auth/authService.js"></script>
+    <script src="auth/authController.js"></script>
 
     <!-- scripts::jquery -->
     <script src="assets@admin/vendor/jquery/jquery-2.1.1.js"></script>
