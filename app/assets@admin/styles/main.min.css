@@ -73,8 +73,8 @@ h3, h4, h5 {
       letter-spacing: 1px;
       background: none;
       border: none;
-      -webkit-transition: color 0.4s ease-in-out, background 0.1s ease-in-out;
-              transition: color 0.4s ease-in-out, background 0.1s ease-in-out; }
+      -webkit-transition: color .4s ease-in-out, background .1s ease-in-out;
+              transition: color .4s ease-in-out, background .1s ease-in-out; }
       .navbar ul li a:hover {
         color: #dc6f6a;
         background: #eee; }
@@ -260,8 +260,8 @@ h3, h4, h5 {
     z-index: 1; }
     .profile-element .profile-element__edit-anchor i {
       font-size: 17px;
-      -webkit-transition: color 0.4s ease-in-out;
-              transition: color 0.4s ease-in-out; }
+      -webkit-transition: color .4s ease-in-out;
+              transition: color .4s ease-in-out; }
     .profile-element .profile-element__edit-anchor:hover i {
       color: #fff; }
 
@@ -6966,7 +6966,11 @@ body.skin-3 {
  * Style
  * ----------------------------------------------------- */
 .page-heading {
-  padding: 0; }
+  padding: 0;
+  height: 80px; }
+  .page-heading h2 {
+    margin-top: 30px;
+    padding-left: 10px; }
 
 .page-heading__profile-section {
   padding: 5px 25px;
@@ -7067,8 +7071,8 @@ body.skin-3 {
     border: 1px solid #D7D9DA;
     display: block;
     padding: 30px 15px;
-    -webkit-transition: color 0.4s ease-in-out, background 0.1s ease-in-out;
-            transition: color 0.4s ease-in-out, background 0.1s ease-in-out; }
+    -webkit-transition: color .4s ease-in-out,background .1s ease-in-out;
+            transition: color .4s ease-in-out,background .1s ease-in-out; }
     #teams-boxes .owl-prev:hover, #teams-boxes .owl-next:hover {
       background-color: #eee;
       color: #dc6f6a; }
@@ -7263,79 +7267,115 @@ body.skin-3 {
 
 /* TASKS
  **/
-.task-list {
+ul.tasks {
   list-style: none;
   position: relative;
   padding: 0; }
-  .task-list li {
-    margin: 20px 0; }
-    .task-list li.timeline-line {
+  ul.tasks li {
+    margin: 10px 0;
+    padding: 0 0 0 80px;
+    position: relative; }
+    ul.tasks li:before {
+      content: " ";
       position: absolute;
-      left: 64px;
-      top: 20px;
+      top: 30px;
+      bottom: 0;
+      left: 24px;
+      background: #F1F1F1;
       height: 100%;
       width: 2px;
-      background-color: #EFEFEF; }
-  .task-list .date {
-    position: relative;
-    padding-left: 60px;
-    display: none; }
+      display: none; }
     @media (min-width: 767px) {
-      .task-list .date {
-        display: block; } }
-    .task-list .date i {
+      ul.tasks li {
+        display: block;
+        padding-left: 280px; }
+        ul.tasks li:before {
+          display: block; } }
+  ul.tasks div.calendar {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 70px;
+    padding-left: 60px; }
+    ul.tasks div.calendar i {
       position: absolute;
       left: 0;
       top: 50%;
       -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
               transform: translateY(-50%);
-      background-color: #dc6f6a;
+      background-color: #BDC3C7;
       color: #fff;
       border-radius: 50%;
       text-align: center;
       font-size: 20px;
-      padding: 15px; }
-    .task-list .date h5 {
-      color: #2d3441;
+      width: 50px;
+      height: 50px;
+      display: block;
+      line-height: 50px; }
+      ul.tasks div.calendar i.warning {
+        background-color: #dc6f6a; }
+      ul.tasks div.calendar i.done {
+        background-color: #87D37C; }
+    ul.tasks div.calendar h5 {
+      color: #4c4c4c;
+      text-transform: uppercase;
+      margin: 20px 0 0 0;
+      font-size: 12px; }
+    ul.tasks div.calendar p {
+      text-transform: uppercase;
+      font-size: 11px; }
+    @media (min-width: 767px) {
+      ul.tasks div.calendar {
+        display: block; } }
+  ul.tasks div.date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 70px;
+    background: #f1f1f1;
+    text-align: center; }
+    @media (min-width: 767px) {
+      ul.tasks div.date {
+        left: 200px; } }
+    ul.tasks div.date h5 {
+      color: #dc6f6a;
       margin-bottom: 0;
-      margin-top: 10px;
-      text-transform: uppercase; }
-    .task-list .date p {
+      margin-top: 19px;
       text-transform: uppercase;
-      color: #B9B9B9; }
-  .task-list .info {
-    /*background-color: #4e4e4e;*/
-    position: relative;
-    padding-left: 80px;
-    background-color: #fbfbfb;
-    min-height: 51px; }
-    .task-list .info .time {
-      min-height: 51px;
-      position: absolute;
-      left: 0;
-      /*transform: translateY(-50%);*/
-      /*top: 50%;*/
-      font-size: 15px;
-      color: #2d3441;
-      padding: 15px;
-      background-color: #EFEFEF; }
-    .task-list .info h4 {
-      font-weight: 600;
-      color: #2d3441; }
-    .task-list .info .course-name {
-      margin: 0;
+      font-size: 16px;
+      font-weight: 400; }
+      @media (min-width: 767px) {
+        ul.tasks div.date h5 {
+          margin-top: 27px; } }
+    ul.tasks div.date p {
       text-transform: uppercase;
+      color: #4c4c4c;
       font-size: 11px;
-      color: #ADADAD; }
-    .task-list .info .undone {
-      position: absolute;
-      right: 10px;
-      border-radius: 50%;
-      padding: 10px;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-              transform: translateY(-50%);
-      background-color: #2ecc71;
-      color: #fff; }
+      font-weight: 400; }
+      @media (min-width: 767px) {
+        ul.tasks div.date p {
+          display: none; } }
+  ul.tasks article {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%; }
+    ul.tasks article header {
+      background-color: #fbfbfb;
+      height: 70px;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      padding: 10px 0 0 15px;
+      border: 1px solid #f1f1f1; }
+      ul.tasks article header h4 {
+        color: #4c4c4c; }
+      ul.tasks article header h6 {
+        color: #adadad;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-family: "AdelleRegular"; }
