@@ -3,6 +3,13 @@
         <div class="ibox float-e-margins">
             <div class="ibox-content">
                 <ul class="tasks" ng-controller="TaskListController">
+                    <li>
+                        <select name="category-group" id="categoryGroup" 
+                                ng-model="itemSelected" ng-change="change(itemSelected)" 
+                                data-ng-options="subject for subject in subjects">
+                            <option value="" selected>Todas as matérias</option>
+                        </select>
+                    </li>
                     <li ng-repeat="task in tasks | orderBy: '-delivery_date'">
 
                         <div class="calendar">
@@ -29,6 +36,7 @@
                             <div class="desc">
                             </div>
                         </article>
+
 
 
                         <!-- <div class="col-md-2 date">

@@ -11,6 +11,7 @@ webapp.controller('TaskListController', ['$scope', '$http', 'TaskService',
 
     TaskService.getAll(function(tasks) {
       if(tasks) {
+        var subjects = [];
         angular.forEach(tasks, function(task, key) {
           var deliveryDay = new Date(task.delivery_date).setHours(0, 0, 0, 0);
           var deliveryDate = new Date(task.delivery_date);
@@ -19,7 +20,9 @@ webapp.controller('TaskListController', ['$scope', '$http', 'TaskService',
           var isThisWeek = remainingDays > 0 && remainingDays < 7; 
           var isToday = deliveryDay == todayDay; 
           var isDone = task.delivery_date > 0; 
-
+          if(subjects.indexOf(task.course_title) == -1){
+            subjects.push(task.course_title);
+          }
 
           tasks[key]["delivery_date"] = deliveryDate;
           tasks[key]["delivery_day"] = deliveryDay;
@@ -29,9 +32,24 @@ webapp.controller('TaskListController', ['$scope', '$http', 'TaskService',
         });
 
         $scope.tasks = tasks;
+        $scope.subjects = subjects;
+
       } else {
 
       }
     });
+    
+    $scope.change = function(subject) {
+      var chosenTasks = []
+      TaskService.getAll(function(tasks) {
+        angular.forEach(tasks, function(task, key) {
+          if(task.course_title == subject || subject == null) {
+            chosenTasks.push(task);
+          }
+        });
+        console.log(subject);
+        $scope.tasks = chosenTasks;
+      });
+    }
   }
 ]);
