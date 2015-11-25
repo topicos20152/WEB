@@ -1,6 +1,6 @@
 var webapp = angular.module('webapp');
 
-webapp.factory('LoginService', ['$http', '$cookies', '$timeout', 
+webapp.factory('AuthService', ['$http', '$cookies', '$timeout', 
   function($http, $cookies, $timeout) {
     var service = {};
 
@@ -28,13 +28,11 @@ webapp.factory('LoginService', ['$http', '$cookies', '$timeout',
     function setCredentials(username, accessToken) {
       $cookies.put('username', username);
       $cookies.put('accessToken', accessToken);
-
-      console.log($cookies.get('username'));
     }
 
     function clearCredentials() {
-      cookies.remove('username');
-      cookies.remove('accessToken');
+      $cookies.remove('username');
+      $cookies.remove('accessToken');
     }
   }
 ]);

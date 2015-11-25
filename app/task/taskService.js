@@ -1,7 +1,7 @@
 var webapp = angular.module('webapp');
 
-webapp.factory('TaskService', ['$http', '$cookies', 
-  function($http, $cookies) {
+webapp.factory('TaskService', ['$http', '$cookies', '$window',
+  function($http, $cookies, $window) {
     var service = {};
 
     service.getAll = getAll;
@@ -24,6 +24,10 @@ webapp.factory('TaskService', ['$http', '$cookies',
         console.log(response);
         console.log('* ------------------- *');
 
+        console.log(response.status)
+        // if (response.status == 401) {
+          $window.location.href = $window.location.href + 'auth/login.html';
+        // }
         callback(false);
       });
     }

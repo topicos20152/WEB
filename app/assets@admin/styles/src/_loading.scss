@@ -1,0 +1,43 @@
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; z-index: -9999;}
+}
+
+
+#loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;
+  background-color: #2d3441;
+  h1 {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(-50%);
+    text-align: center;
+    height: 80px;
+    background-color: #dc6f6a;
+    color: #fff;
+    line-height: 80px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    span {
+      color: #2d3441;
+    }
+  }
+  &.destroy {
+    animation: fade-out 1s 1;
+    animation-transition-property: opacity;
+    animation-fill-mode: forwards;
+  }
+}
