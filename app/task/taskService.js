@@ -26,7 +26,7 @@ webapp.factory('TaskService', ['$http', '$cookies', '$window',
 
         console.log(response.status)
         // if (response.status == 401) {
-          $window.location.href = $window.location.href + 'login/login.html';
+          $window.location.href = $window.location.href + 'auth/login.html';
         // }
         callback(false);
       });

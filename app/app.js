@@ -32,6 +32,8 @@ angular.module('webapp', [
     if(!goingLoginPage && !logged) {
       event.preventDefault();
       $window.location.href = $window.location.href + 'auth/login.html';
+    } else {
+      // $('#loading').addClass('destroy');
     }
   });
 });

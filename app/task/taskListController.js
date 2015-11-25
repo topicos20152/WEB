@@ -29,6 +29,8 @@ webapp.controller('TaskListController', ['$scope', '$http', 'TaskService',
         });
 
         $scope.tasks = tasks;
+        
+        $('#loading').addClass('destroy');
       } else {
 
       }

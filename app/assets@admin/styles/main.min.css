@@ -5,6 +5,57 @@
  *
 */
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en");
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    z-index: -9999; } }
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    z-index: -9999; } }
+
+#loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;
+  background-color: #2d3441; }
+  #loading h1 {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-align: center;
+    height: 80px;
+    background-color: #dc6f6a;
+    color: #fff;
+    line-height: 80px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 2px; }
+    #loading h1 span {
+      color: #2d3441; }
+  #loading.destroy {
+    -webkit-animation: fade-out 1s 1;
+            animation: fade-out 1s 1;
+    animation-transition-property: opacity;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100; }
 

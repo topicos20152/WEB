@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="assets/bower_components/html5-boilerplate/dist/css/main.css">
 </head>
 <body ng-app="webapp">
+    <div id="loading"><h1>SIGAA-<span>X</span></h1></div>
+
     <div id="wrapper">
 
         <ng-include src="'partials/_sidebar.html'"></ng-include>
@@ -48,12 +50,6 @@
         <div id="page-wrapper" class="white-bg">
             
             <div ng-include="'partials/_topnavbar.html'"></div>
-
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-sm-12 col-md-10">
-                    <h2>Tasks</h2>
-                </div>
-            </div>
 
             <div ng-view></div>
 
